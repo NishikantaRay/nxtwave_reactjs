@@ -11,7 +11,22 @@ import user from '../assets/user.webp';
 // Importing ImageTag component.
 import ImageTag from './ImageTag';
 
+// Importing useSelector and useDispatch from react redux
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../actions/index';
+
 export default function NavBar() {
+    
+    //get data from redux store
+    const data = useSelector(state => state.login.user)
+    const dispatch = useDispatch();
+
+    // function for logout handler
+    const logoutHandler = (e) => {
+        dispatch(logout())
+        window.location.reload();
+    }
+    
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="white" variant="light" className='shadow-sm p-3 mb-5 bg-white rounded'>
@@ -19,23 +34,27 @@ export default function NavBar() {
                     <Navbar.Brand href="#home">
                         <ImageTag src={logo} alt='NextWave Logo' />
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto"></Nav>
-                        <Nav >
-                            <Nav.Link >
-                                <button className='btn btn-success mr-3' >ADD ITEM</button>
-                            </Nav.Link>
 
-                            <Nav.Link >
-                                <button className='btn btn-outline-secondary mr-3' >Log out</button>
-                            </Nav.Link>
+                    {
+                        data.phoneNumber !== "" && data.password != "" ? <Navbar.Collapse id="responsive-navbar-nav">
+                            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                            <Nav className="me-auto"></Nav>
+                            <Nav >
+                                <Nav.Link >
+                                    <button className='btn btn-success mr-3' >ADD ITEM</button>
+                                </Nav.Link>
 
-                            <Nav.Link eventKey={2} >
-                                <ImageTag src={user} alt='user image' width="40" height="40" />
-                            </Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
+                                <Nav.Link >
+                                    <button className='btn btn-outline-secondary mr-3' onClick={(e) => { logoutHandler(e) }} >Log out</button>
+                                </Nav.Link>
+
+                                <Nav.Link eventKey={2} >
+                                    <ImageTag src={user} alt='user image' width="40" height="40" />
+                                </Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse> : ""
+                    }
+
                 </Container>
             </Navbar>
         </>

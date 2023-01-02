@@ -1,4 +1,4 @@
-import LoginForm from './components/forms/LoginForm';
+import LoginForm from './components/loginForms/LoginForm';
 import NavBar from './components/NavBar';
 
 function App() {
