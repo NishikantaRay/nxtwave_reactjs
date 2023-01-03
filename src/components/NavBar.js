@@ -24,7 +24,7 @@ export default function NavBar() {
     // function for logout handler
     const logoutHandler = (e) => {
         dispatch(logout())
-        window.location.href = "/nxtwave_reactjs"
+        window.location.href = "/"
     }
 
     // function for create handler
