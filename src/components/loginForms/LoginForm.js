@@ -6,13 +6,15 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 //import from react-redux and react
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 
 //import from actions
-import { login } from '../../actions/index';
+import { login,getApiData } from '../../actions/index';
 import './LoginForm.css'
 
+//import from axios
+import axios from 'axios';
 function LoginForm() {
     // state for the form
     const [phoneNumber, setPhoneNumber] = useState('')
@@ -21,6 +23,15 @@ function LoginForm() {
     // dispatch for the form
     const dispatch = useDispatch();
 
+    const getApiDataHandler = () => {
+        axios.get('https://media-content.ccbp.in/website/react-assignment/resources.json')
+            .then((response) => {
+                dispatch(getApiData(response.data))
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
     // handle submit for the form
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -28,7 +39,9 @@ function LoginForm() {
         // reset the form
         setPhoneNumber('')
         setPassword('')
+        getApiDataHandler()
     }
+    
     return (
         <>
             <Row>

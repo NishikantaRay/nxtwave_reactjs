@@ -9,3 +9,9 @@ export const logout = () => {
         type: 'LOGOUT',
     }
 }
+export const getApiData = (data) => {
+    return {
+        type: 'GET_API_DATA',
+        payload: data
+    }
+}
