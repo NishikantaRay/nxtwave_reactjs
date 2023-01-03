@@ -62,6 +62,7 @@ useEffect(() => {
   }
   console.log(activeKey);
   const [searchData, setSearchData] = useState([])
+  const [searchInput, setSearchInput] = useState('');
   const dataFilter = () => {
     if (activeKey === 'resources') {
       const data = cardData.filter((element) => {
@@ -92,15 +93,29 @@ useEffect(() => {
     dataFilter();
   }, [activeKey])
   console.log(searchData);
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue)
+    if (searchInput !== "") {
+      const data = cardData.filter((item) => {
+        return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+      })
+      setSearchData(data)
+    }
+    else {
+      setSearchData(cardData)
+    }
+  }
   return (
     <>
       <Container>
+       
         <Tabs
           defaultActiveKey="users"
           id="justify-tab-example"
           className="mb-3"
           justify
           onSelect={(k) => handleSelect(k)}
+          style={{ backgroundColor: "aliceblue", width: "50%",marginLeft:"25%" }}
         >
           <Tab eventKey="resources"    title="Resources">
 
@@ -113,6 +128,14 @@ useEffect(() => {
           </Tab>
 
         </Tabs>
+        
+       
+        <div className="form-group m-5 search-inp" style={{width:"50%"}}>
+      <input type="text" className="form-control item" id="search" placeholder="Search..."
+        onChangeCapture={(e) => {
+          searchItems(e.target.value);
+        }}
+      /></div>
         <div className='container'>
           <div className='row'>
           {

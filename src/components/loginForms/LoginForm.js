@@ -78,14 +78,14 @@ function LoginForm() {
                     <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Phone Number</Form.Label>
-                            <Form.Control type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your phone Number" />
+                            <Form.Control type="text" maxLength={10} value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Enter your phone Number" />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your Password" />
                         </Form.Group>
                         <ToastContainer />
-                        <div className="text-center"><Button variant="primary" onClick={(e) => handleSubmit(e)} type="submit">
+                        <div className="text-center"><Button variant="primary" disabled={!phoneNumber&&!password} onClick={(e) => handleSubmit(e)} type="submit">
                             SUBMIT
                         </Button></div>
                         
