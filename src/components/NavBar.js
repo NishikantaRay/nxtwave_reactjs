@@ -20,11 +20,11 @@ export default function NavBar() {
     //get data from redux store
     const data = useSelector(state => state.login.user)
     const dispatch = useDispatch();
-
+   
     // function for logout handler
     const logoutHandler = (e) => {
         dispatch(logout())
-        window.location.reload();
+        window.location.href ="/"
     }
     
     return (

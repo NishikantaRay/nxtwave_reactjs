@@ -6,9 +6,9 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 //import from react-redux and react
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 //import from actions
 import { login,getApiData } from '../../actions/index';
 import './LoginForm.css'
@@ -32,6 +32,7 @@ function LoginForm() {
                 console.log(error)
             })
     }
+    const navigate =useNavigate();
     // handle submit for the form
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -40,6 +41,7 @@ function LoginForm() {
         setPhoneNumber('')
         setPassword('')
         getApiDataHandler()
+        navigate('/resources')
     }
     
     return (
