@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/nxtwave_reactjs" element={<LoginForm />} />
-          <Route path="resources" element={<Resources/>} />
+          <Route path="/resources" element={<Resources/>} />
           <Route path="/create" element={<CreateItem/>} />
           </Routes>
       </BrowserRouter>
