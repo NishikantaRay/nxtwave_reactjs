@@ -24,12 +24,12 @@ export default function NavBar() {
     // function for logout handler
     const logoutHandler = (e) => {
         dispatch(logout())
-        window.location.href = "/"
+        window.location.href = "/nxtwave_reactjs"
     }
 
     // function for create handler
     const handelCreate = () => {
-        window.location.href = "/create"
+        window.location.href = "/nxtwave_reactjs/create"
 
     }
 
