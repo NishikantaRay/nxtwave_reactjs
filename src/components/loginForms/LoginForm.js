@@ -73,7 +73,7 @@ function LoginForm() {
             setPhoneNumber('')
             setPassword('')
             getApiDataHandler()
-            navigate('/resources')
+            navigate('/nxtwave_reactjs/resources')
         }
     }
 
