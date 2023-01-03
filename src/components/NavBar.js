@@ -29,7 +29,7 @@ export default function NavBar() {
 
     // function for create handler
     const handelCreate = () => {
-        window.location.href = "/nxtwave_reactjs/create"
+        window.location.href = "/create"
 
     }
 
