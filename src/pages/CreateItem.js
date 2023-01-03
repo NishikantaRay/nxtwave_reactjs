@@ -34,7 +34,7 @@ function CreateItem() {
   // handle submit for the form
   const handleSubmit = (e) => {
     e.preventDefault()
-    navigate('/resources')
+    navigate('/nxtwave_reactjs/resources')
   }
 
   // handle change for the form
