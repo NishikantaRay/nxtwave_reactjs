@@ -7,6 +7,10 @@ export const login = (data) => {
 export const logout = () => {
     return {
         type: 'LOGOUT',
+        payload: {
+            phoneNumber: "",
+            password: "",
+        }
     }
 }
 export const getApiData = (data) => {

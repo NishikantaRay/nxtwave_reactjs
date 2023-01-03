@@ -14,24 +14,29 @@ import ImageTag from './ImageTag';
 // Importing useSelector and useDispatch from react redux
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../actions/index';
-
+// import { useNavigate } from 'react-router-dom';
 export default function NavBar() {
     
     //get data from redux store
     const data = useSelector(state => state.login.user)
     const dispatch = useDispatch();
-   
+    // const navigate = useNavigate();
     // function for logout handler
     const logoutHandler = (e) => {
         dispatch(logout())
         window.location.href ="/"
+    }
+    const handelCreate=()=>{
+        
+        window.location.href ="/create"
+        // navigate('/create')
     }
     
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="white" variant="light" className='shadow-sm p-3 mb-5 bg-white rounded'>
                 <Container >
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="/">
                         <ImageTag src={logo} alt='NextWave Logo' />
                     </Navbar.Brand>
 
@@ -40,8 +45,8 @@ export default function NavBar() {
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Nav className="me-auto"></Nav>
                             <Nav >
-                                <Nav.Link >
-                                    <button className='btn btn-success mr-3' >ADD ITEM</button>
+                                <Nav.Link to='/create'>
+                                    <button onClick={handelCreate}  className='btn btn-success mr-3' >ADD ITEM</button>
                                 </Nav.Link>
 
                                 <Nav.Link >

@@ -51,6 +51,7 @@ useEffect(() => {
   axios.get('https://media-content.ccbp.in/website/react-assignment/resources.json')
             .then((response) => {
                      setCardData(response.data)
+                     setSearchData(response.data)
             })
             .catch((error) => {
                 console.log(error)

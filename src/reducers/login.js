@@ -1,3 +1,4 @@
+import storage from "redux-persist/lib/storage"
 const initialState = {
     user: {
         phoneNumber: "",
@@ -13,7 +14,12 @@ const loginReducer = (state = initialState, action) => {
             }
         case "LOGOUT":
             return {
-                ...state
+                ...state,
+                //remove persisted data
+                user: {
+                    phoneNumber: "",
+                    password: "",
+                }
             }
         default:
             return state
