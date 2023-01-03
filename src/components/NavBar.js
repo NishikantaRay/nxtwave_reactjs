@@ -14,24 +14,25 @@ import ImageTag from './ImageTag';
 // Importing useSelector and useDispatch from react redux
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../actions/index';
-// import { useNavigate } from 'react-router-dom';
+
 export default function NavBar() {
-    
+
     //get data from redux store
     const data = useSelector(state => state.login.user)
     const dispatch = useDispatch();
-    // const navigate = useNavigate();
+
     // function for logout handler
     const logoutHandler = (e) => {
         dispatch(logout())
-        window.location.href ="/"
+        window.location.href = "/"
     }
-    const handelCreate=()=>{
-        
-        window.location.href ="/create"
-        // navigate('/create')
+
+    // function for create handler
+    const handelCreate = () => {
+        window.location.href = "/create"
+
     }
-    
+
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="white" variant="light" className='shadow-sm p-3 mb-5 bg-white rounded'>
@@ -46,7 +47,7 @@ export default function NavBar() {
                             <Nav className="me-auto"></Nav>
                             <Nav >
                                 <Nav.Link to='/create'>
-                                    <button onClick={handelCreate}  className='btn btn-success mr-3' >ADD ITEM</button>
+                                    <button onClick={handelCreate} className='btn btn-success mr-3' >ADD ITEM</button>
                                 </Nav.Link>
 
                                 <Nav.Link >

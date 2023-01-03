@@ -2,6 +2,7 @@ const initialState = {
     api: []
 }
 
+// Reducer for API
 const apiReducer = (state = initialState, action) => {
     switch (action.type) {
         case "GET_API_DATA":

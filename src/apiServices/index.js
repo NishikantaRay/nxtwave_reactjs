@@ -1,6 +1,6 @@
 import axios from 'axios';
-// call axios to get data from api
 
+//api call to get the data
 export const getApiData = () => {
     return () => {
         axios.get('https://media-content.ccbp.in/website/react-assignment/resources.json')

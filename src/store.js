@@ -8,9 +8,5 @@ const persistConfig = {
     storage,
 }
 const persistedReducer = persistReducer(persistConfig, allReducers)
-// const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
-// export default store;
 const store = createStore(persistedReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 export default store;
-// export const persistor = persistStore(store)
