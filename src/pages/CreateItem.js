@@ -77,7 +77,7 @@ function CreateItem() {
       });
     }
     else {
-      axios.post('http://localhost:5000/api/v1/resources', details)
+      axios.post('https://media-content.ccbp.in/website/react-assignment/add_resource.json', details)
         .then(res => {
           toast.success("Items details saved Successfully", {
             position: toast.POSITION.BOTTOM_CENTER
