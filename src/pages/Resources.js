@@ -115,7 +115,7 @@ function Resources() {
           <LoadingOverlay > 
           <div className='container'>
         <div className='row'>
-          
+          {searchData.length != 0 ?<Loader loading={loading}/> : <h4 className="m-3 bgImage panel-body-appointment1 d-flex justify-content-center">No data Found</h4>}
           {searchData.map((element) => {
                         return (
                             <div className='col col-sm-6 col-md-4 col-lg-4' >
@@ -147,7 +147,7 @@ function Resources() {
 
             </div>
         </div>
-            <Loader loading={loading}/>
+        <Loader loading={loading}/>
         </LoadingOverlay>
         
       </Container>
