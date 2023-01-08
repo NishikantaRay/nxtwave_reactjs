@@ -1,5 +1,4 @@
 {
-  "homepage": "http://NishikantaRay.github.io/nxtwave_reactjs",
   "name": "resource_management_admin_portal",
   "version": "0.1.0",
   "private": true,
@@ -22,6 +21,7 @@
     "react-toastify": "^9.1.1",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
+    "serve": "^14.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
